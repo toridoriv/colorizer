@@ -1,0 +1,32 @@
+{
+  "name": "@toridoriv/colorizer",
+  "version": "0.2.3",
+  "description": "Syntax highlighting for the terminal.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "chmod": "find scripts -type f -not -name 'utils.*' -exec chmod +x {} \\;",
+    "prebuild": "rm -rf dist",
+    "build": "scripty",
+    "postbuild": "prettier -w ./dist/index.js"
+  },
+  "devDependencies": {
+    "@prettier/plugin-xml": "^3.4.1",
+    "@shikijs/cli": "^3.4.0",
+    "@toridoriv/eslint-config": "github:toridoriv/eslint-config",
+    "@types/bun": "^1.2.12",
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "chalk": "^5.4.1",
+    "eslint": "^9.26.0",
+    "prettier": "^3.5.3",
+    "scripty": "file:../scripty/scripty-3.2.1.tgz",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "eslint-config-airbnb": "^19.0.4"
+  }
+}
