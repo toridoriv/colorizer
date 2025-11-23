@@ -15,7 +15,7 @@
     "postbuild": "prettier -w ./dist/index.js"
   },
   "devDependencies": {
-    "@prettier/plugin-xml": "^3.4.1",
+    "@prettier/plugin-xml": "^3.4.2",
     "@shikijs/cli": "^3.4.0",
     "@toridoriv/eslint-config": "github:toridoriv/eslint-config",
     "@types/bun": "^1.2.12",
