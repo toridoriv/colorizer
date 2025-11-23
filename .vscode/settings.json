@@ -1,69 +1,52 @@
 {
   "[css]": {
-    "editor.codeActionsOnSave": [
-      "source.fixAll.eslint"
-    ],
+    "editor.codeActionsOnSave": ["source.fixAll.eslint"],
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
   },
   "[html]": {
-    "editor.codeActionsOnSave": [
-      "source.fixAll.eslint"
-    ],
+    "editor.codeActionsOnSave": ["source.fixAll.eslint"],
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
   },
   "[javascript]": {
-    "editor.codeActionsOnSave": [
-      "source.fixAll.eslint"
-    ],
+    "editor.codeActionsOnSave": ["source.fixAll.eslint"],
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
   },
   "[json]": {
-    "editor.codeActionsOnSave": [
-      "source.fixAll.eslint"
-    ],
+    "editor.codeActionsOnSave": ["source.fixAll.eslint"],
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
   },
   "[jsonc]": {
-    "editor.codeActionsOnSave": [
-      "source.fixAll.eslint"
-    ],
+    "editor.codeActionsOnSave": ["source.fixAll.eslint"],
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
   },
   "[markdown]": {
-    "editor.codeActionsOnSave": [
-      "source.fixAll.eslint"
-    ],
+    "editor.codeActionsOnSave": ["source.fixAll.eslint"],
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
   },
   "[typescript]": {
-    "editor.codeActionsOnSave": [
-      "source.fixAll.eslint"
-    ],
+    "editor.codeActionsOnSave": ["source.fixAll.eslint"],
     "editor.defaultFormatter": "dbaeumer.vscode-eslint",
     "editor.formatOnSave": true
   },
   "eslint.enable": true,
   "eslint.format.enable": true,
   "eslint.runtime": "node",
-  "eslint.validate": [
-    "css",
-    "html",
-    "json",
-    "jsonc",
-    "javascript",
-    "markdown",
-    "typescript"
-  ],
+  "eslint.validate": ["css", "html", "json", "jsonc", "javascript", "markdown", "typescript"],
   "javascript.suggestionActions.enabled": false,
   "typescript.disableAutomaticTypeAcquisition": true,
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "typescript.suggest.autoImports": true,
   "typescript.tsdk": "./node_modules/typescript/lib",
-  "eslint.useFlatConfig": true
+  "eslint.useFlatConfig": true,
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Analize the changes that are included in this commit. Then, use the format `<intention> [(scope)?][:?] <message>`, where:\n\n- `<intention>` is an emoji from the Gitmoji specification that best describes the intention of the commit.\n- `[scope?]` is an optional scope that provides additional context about the commit (e.g., deps, ui, core, etc.). If included, it should be enclosed in parentheses.\n- `<message>` is a brief description of the changes made in the commit.\n\nIf the change is updating a dependency or a development dependency, follow the format:\n\n- :arrow_up: (deps) Bump <dependency_name> from <old_version> to <new_version>\n- :arrow_up: (deps-dev) Bump <dependency_name> from <old_version> to <new_version>\n\nMake sure to follow this format exactly, as it helps maintain a consistent and informative commit history."
+    }
+  ]
 }
