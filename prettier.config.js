@@ -1,6 +1,8 @@
 import { prettierConfig } from "@toridoriv/eslint-config";
 
-prettierConfig.objectWrap = "collapse";
-prettierConfig.printWidth = 120;
+// eslint-disable-next-line no-unused-vars
+const { printWidth, endOfLine, useTabs, ...config } = prettierConfig;
 
-export default prettierConfig;
+config.objectWrap = "collapse";
+
+export default config;
