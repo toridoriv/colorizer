@@ -40,7 +40,7 @@ function getModuleContent(kind: "themes" | "langs", values: Values) {
 }
 
 function getType(name: string, themes: string[] | readonly string[]) {
-  return `export type ${name} = ${themes.map(doubleQuotes).join(" | ")}`;
+  return `export type ${name} = ${themes.map(doubleQuotes).join(" | ")};\n`;
 }
 
 function pick<T, K extends keyof T>(key: K) {
