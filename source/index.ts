@@ -15,6 +15,15 @@ const parserByLanguage = {
   markdown: "markdown",
   javascript: "espree",
   typescript: "typescript",
+  css: "css",
+  scss: "scss",
+  less: "less",
+  graphql: "graphql",
+  mdx: "mdx",
+  vue: "vue",
+  angular: "angular",
+  mjml: "mjml",
+  yaml: "yaml",
 };
 
 type ColorizeFn = (code: string, theme?: Theme) => Promise<string>;
@@ -31,7 +40,7 @@ function createCodeColorizer(language: Language) {
           code = await prettier.format(code, {
             parser,
             plugins: [prettierPluginXML],
-            printWidth: 120,
+            printWidth: process.stdout.columns || 80,
             singleAttributePerLine: false,
             tabWidth: 2,
             useTabs: false,
