@@ -36,6 +36,7 @@ import c from "@shikijs/langs/c";
 import cadence from "@shikijs/langs/cadence";
 import cairo from "@shikijs/langs/cairo";
 import cdc from "@shikijs/langs/cdc";
+import cjs from "@shikijs/langs/cjs";
 import clarity from "@shikijs/langs/clarity";
 import clj from "@shikijs/langs/clj";
 import clojure from "@shikijs/langs/clojure";
@@ -58,6 +59,7 @@ import cs from "@shikijs/langs/cs";
 import csharp from "@shikijs/langs/csharp";
 import css from "@shikijs/langs/css";
 import csv from "@shikijs/langs/csv";
+import cts from "@shikijs/langs/cts";
 import cue from "@shikijs/langs/cue";
 import cypher from "@shikijs/langs/cypher";
 import d from "@shikijs/langs/d";
@@ -130,6 +132,7 @@ import hs from "@shikijs/langs/hs";
 import html from "@shikijs/langs/html";
 import htmlDerivative from "@shikijs/langs/html-derivative";
 import http from "@shikijs/langs/http";
+import hurl from "@shikijs/langs/hurl";
 import hxml from "@shikijs/langs/hxml";
 import hy from "@shikijs/langs/hy";
 import imba from "@shikijs/langs/imba";
@@ -150,6 +153,7 @@ import jsonnet from "@shikijs/langs/jsonnet";
 import jssm from "@shikijs/langs/jssm";
 import jsx from "@shikijs/langs/jsx";
 import julia from "@shikijs/langs/julia";
+import kdl from "@shikijs/langs/kdl";
 import kotlin from "@shikijs/langs/kotlin";
 import kql from "@shikijs/langs/kql";
 import kt from "@shikijs/langs/kt";
@@ -180,9 +184,11 @@ import mediawiki from "@shikijs/langs/mediawiki";
 import mermaid from "@shikijs/langs/mermaid";
 import mips from "@shikijs/langs/mips";
 import mipsasm from "@shikijs/langs/mipsasm";
+import mjs from "@shikijs/langs/mjs";
 import mmd from "@shikijs/langs/mmd";
 import mojo from "@shikijs/langs/mojo";
 import move from "@shikijs/langs/move";
+import mts from "@shikijs/langs/mts";
 import nar from "@shikijs/langs/nar";
 import narrat from "@shikijs/langs/narrat";
 import nextflow from "@shikijs/langs/nextflow";
@@ -200,6 +206,7 @@ import pascal from "@shikijs/langs/pascal";
 import perl from "@shikijs/langs/perl";
 import perl6 from "@shikijs/langs/perl6";
 import php from "@shikijs/langs/php";
+import pkl from "@shikijs/langs/pkl";
 import plsql from "@shikijs/langs/plsql";
 import po from "@shikijs/langs/po";
 import polar from "@shikijs/langs/polar";
@@ -234,6 +241,7 @@ import regex from "@shikijs/langs/regex";
 import regexp from "@shikijs/langs/regexp";
 import rel from "@shikijs/langs/rel";
 import riscv from "@shikijs/langs/riscv";
+import rosmsg from "@shikijs/langs/rosmsg";
 import rs from "@shikijs/langs/rs";
 import rst from "@shikijs/langs/rst";
 import ruby from "@shikijs/langs/ruby";
@@ -299,6 +307,7 @@ import vueDirectives from "@shikijs/langs/vue-directives";
 import vueHtml from "@shikijs/langs/vue-html";
 import vueInterpolations from "@shikijs/langs/vue-interpolations";
 import vueSfcStyleVariableInjection from "@shikijs/langs/vue-sfc-style-variable-injection";
+import vueVine from "@shikijs/langs/vue-vine";
 import vy from "@shikijs/langs/vy";
 import vyper from "@shikijs/langs/vyper";
 import wasm from "@shikijs/langs/wasm";
@@ -356,6 +365,7 @@ export type Language =
   | "cadence"
   | "cairo"
   | "cdc"
+  | "cjs"
   | "clarity"
   | "clj"
   | "clojure"
@@ -378,6 +388,7 @@ export type Language =
   | "csharp"
   | "css"
   | "csv"
+  | "cts"
   | "cue"
   | "cypher"
   | "d"
@@ -450,6 +461,7 @@ export type Language =
   | "html"
   | "html-derivative"
   | "http"
+  | "hurl"
   | "hxml"
   | "hy"
   | "imba"
@@ -470,6 +482,7 @@ export type Language =
   | "jssm"
   | "jsx"
   | "julia"
+  | "kdl"
   | "kotlin"
   | "kql"
   | "kt"
@@ -500,9 +513,11 @@ export type Language =
   | "mermaid"
   | "mips"
   | "mipsasm"
+  | "mjs"
   | "mmd"
   | "mojo"
   | "move"
+  | "mts"
   | "nar"
   | "narrat"
   | "nextflow"
@@ -520,6 +535,7 @@ export type Language =
   | "perl"
   | "perl6"
   | "php"
+  | "pkl"
   | "plsql"
   | "po"
   | "polar"
@@ -554,6 +570,7 @@ export type Language =
   | "regexp"
   | "rel"
   | "riscv"
+  | "rosmsg"
   | "rs"
   | "rst"
   | "ruby"
@@ -619,6 +636,7 @@ export type Language =
   | "vue-html"
   | "vue-interpolations"
   | "vue-sfc-style-variable-injection"
+  | "vue-vine"
   | "vy"
   | "vyper"
   | "wasm"
@@ -676,6 +694,7 @@ export const languages = [
   cadence,
   cairo,
   cdc,
+  cjs,
   clarity,
   clj,
   clojure,
@@ -698,6 +717,7 @@ export const languages = [
   csharp,
   css,
   csv,
+  cts,
   cue,
   cypher,
   d,
@@ -770,6 +790,7 @@ export const languages = [
   html,
   htmlDerivative,
   http,
+  hurl,
   hxml,
   hy,
   imba,
@@ -790,6 +811,7 @@ export const languages = [
   jssm,
   jsx,
   julia,
+  kdl,
   kotlin,
   kql,
   kt,
@@ -820,9 +842,11 @@ export const languages = [
   mermaid,
   mips,
   mipsasm,
+  mjs,
   mmd,
   mojo,
   move,
+  mts,
   nar,
   narrat,
   nextflow,
@@ -840,6 +864,7 @@ export const languages = [
   perl,
   perl6,
   php,
+  pkl,
   plsql,
   po,
   polar,
@@ -874,6 +899,7 @@ export const languages = [
   regexp,
   rel,
   riscv,
+  rosmsg,
   rs,
   rst,
   ruby,
@@ -939,6 +965,7 @@ export const languages = [
   vueHtml,
   vueInterpolations,
   vueSfcStyleVariableInjection,
+  vueVine,
   vy,
   vyper,
   wasm,

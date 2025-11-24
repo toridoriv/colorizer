@@ -46,6 +46,7 @@ export type Language =
   | "cadence"
   | "cairo"
   | "cdc"
+  | "cjs"
   | "clarity"
   | "clj"
   | "clojure"
@@ -68,6 +69,7 @@ export type Language =
   | "csharp"
   | "css"
   | "csv"
+  | "cts"
   | "cue"
   | "cypher"
   | "d"
@@ -140,6 +142,7 @@ export type Language =
   | "html"
   | "html-derivative"
   | "http"
+  | "hurl"
   | "hxml"
   | "hy"
   | "imba"
@@ -160,6 +163,7 @@ export type Language =
   | "jssm"
   | "jsx"
   | "julia"
+  | "kdl"
   | "kotlin"
   | "kql"
   | "kt"
@@ -190,9 +194,11 @@ export type Language =
   | "mermaid"
   | "mips"
   | "mipsasm"
+  | "mjs"
   | "mmd"
   | "mojo"
   | "move"
+  | "mts"
   | "nar"
   | "narrat"
   | "nextflow"
@@ -210,6 +216,7 @@ export type Language =
   | "perl"
   | "perl6"
   | "php"
+  | "pkl"
   | "plsql"
   | "po"
   | "polar"
@@ -244,6 +251,7 @@ export type Language =
   | "regexp"
   | "rel"
   | "riscv"
+  | "rosmsg"
   | "rs"
   | "rst"
   | "ruby"
@@ -309,6 +317,7 @@ export type Language =
   | "vue-html"
   | "vue-interpolations"
   | "vue-sfc-style-variable-injection"
+  | "vue-vine"
   | "vy"
   | "vyper"
   | "wasm"
@@ -395,4 +404,6 @@ type ColorizeFn = (code: string, theme?: Theme) => Promise<string>;
 export type Colorize = { [K in Language]: ColorizeFn };
 export const colorize: Colorize;
 export function isJson(value: string): boolean;
-export function getLanguage(value: string): "html" | "json" | "markdown" | "xml";
+export function getLanguage(
+  value: string,
+): "html" | "json" | "markdown" | "xml";
