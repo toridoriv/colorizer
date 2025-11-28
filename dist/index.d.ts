@@ -1,12 +1,3 @@
-/**
- * Code to tokens, with a simple theme.
- */
-export function codeToTokensBase(
-  internal: ShikiInternal,
-  code: string,
-  options?: CodeToTokensBaseOptions,
-): ThemedToken[][];
-
 export type Language =
   | "1c"
   | "1c-query"
@@ -401,7 +392,11 @@ export type Theme =
   | "vitesse-dark"
   | "vitesse-light";
 
-export function codeToANSI(code: string, lang: Language, theme: Theme): string;
+export function codeToANSI(
+  code: string,
+  lang: Language,
+  theme: Theme,
+): Promise<string>;
 
 type ColorizeFn = (code: string, theme?: Theme) => Promise<string>;
 export type Colorize = { [K in Language]: ColorizeFn };

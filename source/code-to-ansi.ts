@@ -1,10 +1,9 @@
-import { createHighlighterCoreSync } from "@shikijs/core";
 import c from "chalk";
-import { createJavaScriptRegexEngine } from "shiki";
+import type { BundledLanguage } from "shiki";
+import { codeToTokensBase, getSingletonHighlighter } from "shiki";
 
-import { codeToTokensBase } from "./code-to-tokens.ts";
-import { type Language, languages } from "./languages.ts";
-import { type Theme, themes } from "./themes.ts";
+import type { Language } from "./languages.ts";
+import type { Theme } from "./themes.ts";
 
 enum FontStyle {
   NotSet = -1,
@@ -15,14 +14,13 @@ enum FontStyle {
   Strikethrough = 8,
 }
 
-const shiki = createHighlighterCoreSync({ themes, langs: languages, engine: createJavaScriptRegexEngine() });
-
-export function codeToANSI(code: string, lang: Language, theme: Theme): string {
+export async function codeToANSI(code: string, lang: Language, theme: Theme): Promise<string> {
   let output = "";
 
-  const lines = codeToTokensBase(shiki, code, { lang, theme });
+  const lines = await codeToTokensBase(code, { lang: lang as BundledLanguage, theme });
 
-  const themeReg = shiki.getTheme(theme);
+  const highlight = await getSingletonHighlighter();
+  const themeReg = highlight.getTheme(theme);
 
   for (const line of lines) {
     for (const token of line) {
