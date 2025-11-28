@@ -174,6 +174,7 @@ import luau from "@shikijs/langs/luau";
 import make from "@shikijs/langs/make";
 import makefile from "@shikijs/langs/makefile";
 import markdown from "@shikijs/langs/markdown";
+import markdownNix from "@shikijs/langs/markdown-nix";
 import markdownVue from "@shikijs/langs/markdown-vue";
 import marko from "@shikijs/langs/marko";
 import matlab from "@shikijs/langs/matlab";
@@ -202,6 +203,7 @@ import objc from "@shikijs/langs/objc";
 import objectiveC from "@shikijs/langs/objective-c";
 import objectiveCpp from "@shikijs/langs/objective-cpp";
 import ocaml from "@shikijs/langs/ocaml";
+import openscad from "@shikijs/langs/openscad";
 import pascal from "@shikijs/langs/pascal";
 import perl from "@shikijs/langs/perl";
 import perl6 from "@shikijs/langs/perl6";
@@ -248,6 +250,7 @@ import ruby from "@shikijs/langs/ruby";
 import rust from "@shikijs/langs/rust";
 import sas from "@shikijs/langs/sas";
 import sass from "@shikijs/langs/sass";
+import scad from "@shikijs/langs/scad";
 import scala from "@shikijs/langs/scala";
 import scheme from "@shikijs/langs/scheme";
 import scss from "@shikijs/langs/scss";
@@ -503,6 +506,7 @@ export type Language =
   | "make"
   | "makefile"
   | "markdown"
+  | "markdown-nix"
   | "markdown-vue"
   | "marko"
   | "matlab"
@@ -531,6 +535,7 @@ export type Language =
   | "objective-c"
   | "objective-cpp"
   | "ocaml"
+  | "openscad"
   | "pascal"
   | "perl"
   | "perl6"
@@ -577,6 +582,7 @@ export type Language =
   | "rust"
   | "sas"
   | "sass"
+  | "scad"
   | "scala"
   | "scheme"
   | "scss"
@@ -832,6 +838,7 @@ export const languages = [
   make,
   makefile,
   markdown,
+  markdownNix,
   markdownVue,
   marko,
   matlab,
@@ -860,6 +867,7 @@ export const languages = [
   objectiveC,
   objectiveCpp,
   ocaml,
+  openscad,
   pascal,
   perl,
   perl6,
@@ -906,6 +914,7 @@ export const languages = [
   rust,
   sas,
   sass,
+  scad,
   scala,
   scheme,
   scss,
