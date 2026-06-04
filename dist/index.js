@@ -1,19 +1,4 @@
 // @ts-ignore
-import { createRequire } from "node:module";
-var __create = Object.create;
-var __getProtoOf = Object.getPrototypeOf;
-var __defProp = Object.defineProperty;
-var __getOwnPropNames = Object.getOwnPropertyNames;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __toESM = (mod, isNodeMode, target) => {
-  target = mod != null ? __create(__getProtoOf(mod)) : {};
-  const to =
-    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target;
-  for (let key of __getOwnPropNames(mod))
-    if (!__hasOwnProp.call(to, key)) __defProp(to, key, { get: () => mod[key], enumerable: true });
-  return to;
-};
-var __require = /* @__PURE__ */ createRequire(import.meta.url);
 
 // source/code-to-ansi.ts
 import makeSynchronous from "./make-synchronous.js";
@@ -66,8 +51,7 @@ async function codeToANSIAsync(code, lang, theme) {
       }
       output += text;
     }
-    output += `
-`;
+    output += "\n";
   }
   return output;
 }
@@ -98,10 +82,10 @@ async function formatAsync(code, language, options = {}) {
   const { debuglog } = await import("node:util");
   const log = debuglog("syntax-highlight:format");
   if (!parser) {
-    log("⚠️ No parser found for language: %s", language);
+    log("\u26A0\uFE0F No parser found for language: %s", language);
     return code;
   }
-  log("ℹ️  Formatting code with parser: %s", parser);
+  log("\u2139\uFE0F  Formatting code with parser: %s", parser);
   const prettierPluginXML = await import("@prettier/plugin-xml");
   const prettier = await import("prettier");
   const result = await prettier.format(code, {
@@ -178,4 +162,4 @@ function getLanguage(value) {
   }
   return "markdown";
 }
-export { isJson, getLanguage, colorize };
+export { colorize, getLanguage, isJson };
