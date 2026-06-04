@@ -1,62 +1,21 @@
 import { codeToANSI } from "./code-to-ansi.ts";
+import { format } from "./format.ts";
 import { type Language } from "./languages.ts";
 export { type Language } from "./languages.ts";
 import { type Theme } from "./themes.ts";
 export { type Theme } from "./themes.ts";
-import prettierPluginXML from "@prettier/plugin-xml";
-import prettier from "prettier";
 
-const parserByLanguage = {
-  xml: "html",
-  html: "html",
-  json: "json",
-  jsonc: "jsonc",
-  json5: "json5",
-  markdown: "markdown",
-  javascript: "espree",
-  typescript: "typescript",
-  css: "css",
-  scss: "scss",
-  less: "less",
-  graphql: "graphql",
-  mdx: "mdx",
-  vue: "vue",
-  angular: "angular",
-  mjml: "mjml",
-  yaml: "yaml",
-};
-
-type ColorizeFn = (code: string, theme?: Theme) => Promise<string>;
+type ColorizeFn = (code: string, theme?: Theme) => string;
 
 export type Colorize = { [K in Language]: ColorizeFn };
 
 function createCodeColorizer(language: Language) {
   return {
-    async [language](code: string, theme: Theme = "dracula") {
-      if (language in parserByLanguage) {
-        const parser = parserByLanguage[language as keyof typeof parserByLanguage];
-
-        try {
-          code = await prettier.format(code, {
-            parser,
-            plugins: [prettierPluginXML],
-            printWidth: process.stdout.columns || 80,
-            singleAttributePerLine: false,
-            tabWidth: 2,
-            useTabs: false,
-            trailingComma: "all",
-            bracketSameLine: true,
-            bracketSpacing: true,
-            objectWrap: "preserve",
-            htmlWhitespaceSensitivity: "ignore",
-            endOfLine: "lf",
-            quoteProps: "consistent",
-            xmlSortAttributesByKey: true,
-            xmlWhitespaceSensitivity: "ignore",
-          });
-        } catch {
-          console.debug("Prettier failed to format code");
-        }
+    [language](code: string, theme: Theme = "dracula") {
+      try {
+        code = format(code, language);
+      } catch (error) {
+        console.debug("Prettier failed to format code", error);
       }
 
       return codeToANSI(code.trim(), language, theme);
