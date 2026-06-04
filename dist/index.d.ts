@@ -34,6 +34,7 @@ export type Language =
   | "blade"
   | "bsl"
   | "c"
+  | "c3"
   | "cadence"
   | "cairo"
   | "cdc"
@@ -114,6 +115,7 @@ export type Language =
   | "glimmer-js"
   | "glimmer-ts"
   | "glsl"
+  | "gn"
   | "gnuplot"
   | "go"
   | "gql"
@@ -179,6 +181,8 @@ export type Language =
   | "markdown-vue"
   | "marko"
   | "matlab"
+  | "mbt"
+  | "mbti"
   | "md"
   | "mdc"
   | "mdx"
@@ -189,6 +193,7 @@ export type Language =
   | "mjs"
   | "mmd"
   | "mojo"
+  | "moonbit"
   | "move"
   | "mts"
   | "nar"
@@ -392,16 +397,10 @@ export type Theme =
   | "vitesse-dark"
   | "vitesse-light";
 
-export function codeToANSI(
-  code: string,
-  lang: Language,
-  theme: Theme,
-): Promise<string>;
+export function codeToANSI(code: string, lang: Language, theme: Theme): Promise<string>;
 
 type ColorizeFn = (code: string, theme?: Theme) => Promise<string>;
 export type Colorize = { [K in Language]: ColorizeFn };
 export const colorize: Colorize;
 export function isJson(value: string): boolean;
-export function getLanguage(
-  value: string,
-): "html" | "json" | "markdown" | "xml";
+export function getLanguage(value: string): "html" | "json" | "markdown" | "xml";

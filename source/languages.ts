@@ -33,6 +33,7 @@ import bicep from "@shikijs/langs/bicep";
 import blade from "@shikijs/langs/blade";
 import bsl from "@shikijs/langs/bsl";
 import c from "@shikijs/langs/c";
+import c3 from "@shikijs/langs/c3";
 import cadence from "@shikijs/langs/cadence";
 import cairo from "@shikijs/langs/cairo";
 import cdc from "@shikijs/langs/cdc";
@@ -113,6 +114,7 @@ import gleam from "@shikijs/langs/gleam";
 import glimmerJs from "@shikijs/langs/glimmer-js";
 import glimmerTs from "@shikijs/langs/glimmer-ts";
 import glsl from "@shikijs/langs/glsl";
+import gn from "@shikijs/langs/gn";
 import gnuplot from "@shikijs/langs/gnuplot";
 import go from "@shikijs/langs/go";
 import gql from "@shikijs/langs/gql";
@@ -178,6 +180,8 @@ import markdownNix from "@shikijs/langs/markdown-nix";
 import markdownVue from "@shikijs/langs/markdown-vue";
 import marko from "@shikijs/langs/marko";
 import matlab from "@shikijs/langs/matlab";
+import mbt from "@shikijs/langs/mbt";
+import mbti from "@shikijs/langs/mbti";
 import md from "@shikijs/langs/md";
 import mdc from "@shikijs/langs/mdc";
 import mdx from "@shikijs/langs/mdx";
@@ -188,6 +192,7 @@ import mipsasm from "@shikijs/langs/mipsasm";
 import mjs from "@shikijs/langs/mjs";
 import mmd from "@shikijs/langs/mmd";
 import mojo from "@shikijs/langs/mojo";
+import moonbit from "@shikijs/langs/moonbit";
 import move from "@shikijs/langs/move";
 import mts from "@shikijs/langs/mts";
 import nar from "@shikijs/langs/nar";
@@ -365,6 +370,7 @@ export type Language =
   | "blade"
   | "bsl"
   | "c"
+  | "c3"
   | "cadence"
   | "cairo"
   | "cdc"
@@ -445,6 +451,7 @@ export type Language =
   | "glimmer-js"
   | "glimmer-ts"
   | "glsl"
+  | "gn"
   | "gnuplot"
   | "go"
   | "gql"
@@ -510,6 +517,8 @@ export type Language =
   | "markdown-vue"
   | "marko"
   | "matlab"
+  | "mbt"
+  | "mbti"
   | "md"
   | "mdc"
   | "mdx"
@@ -520,6 +529,7 @@ export type Language =
   | "mjs"
   | "mmd"
   | "mojo"
+  | "moonbit"
   | "move"
   | "mts"
   | "nar"
@@ -697,6 +707,7 @@ export const languages = [
   blade,
   bsl,
   c,
+  c3,
   cadence,
   cairo,
   cdc,
@@ -777,6 +788,7 @@ export const languages = [
   glimmerJs,
   glimmerTs,
   glsl,
+  gn,
   gnuplot,
   go,
   gql,
@@ -842,6 +854,8 @@ export const languages = [
   markdownVue,
   marko,
   matlab,
+  mbt,
+  mbti,
   md,
   mdc,
   mdx,
@@ -852,6 +866,7 @@ export const languages = [
   mjs,
   mmd,
   mojo,
+  moonbit,
   move,
   mts,
   nar,
