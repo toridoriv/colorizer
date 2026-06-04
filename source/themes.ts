@@ -1,6 +1,8 @@
 import andromeeda from "@shikijs/themes/andromeeda";
 import auroraX from "@shikijs/themes/aurora-x";
 import ayuDark from "@shikijs/themes/ayu-dark";
+import ayuLight from "@shikijs/themes/ayu-light";
+import ayuMirage from "@shikijs/themes/ayu-mirage";
 import catppuccinFrappe from "@shikijs/themes/catppuccin-frappe";
 import catppuccinLatte from "@shikijs/themes/catppuccin-latte";
 import catppuccinMacchiato from "@shikijs/themes/catppuccin-macchiato";
@@ -23,6 +25,8 @@ import gruvboxDarkSoft from "@shikijs/themes/gruvbox-dark-soft";
 import gruvboxLightHard from "@shikijs/themes/gruvbox-light-hard";
 import gruvboxLightMedium from "@shikijs/themes/gruvbox-light-medium";
 import gruvboxLightSoft from "@shikijs/themes/gruvbox-light-soft";
+import horizon from "@shikijs/themes/horizon";
+import horizonBright from "@shikijs/themes/horizon-bright";
 import houston from "@shikijs/themes/houston";
 import kanagawaDragon from "@shikijs/themes/kanagawa-dragon";
 import kanagawaLotus from "@shikijs/themes/kanagawa-lotus";
@@ -38,6 +42,7 @@ import minDark from "@shikijs/themes/min-dark";
 import minLight from "@shikijs/themes/min-light";
 import monokai from "@shikijs/themes/monokai";
 import nightOwl from "@shikijs/themes/night-owl";
+import nightOwlLight from "@shikijs/themes/night-owl-light";
 import nord from "@shikijs/themes/nord";
 import oneDarkPro from "@shikijs/themes/one-dark-pro";
 import oneLight from "@shikijs/themes/one-light";
@@ -63,6 +68,8 @@ export type Theme =
   | "andromeeda"
   | "aurora-x"
   | "ayu-dark"
+  | "ayu-light"
+  | "ayu-mirage"
   | "catppuccin-frappe"
   | "catppuccin-latte"
   | "catppuccin-macchiato"
@@ -85,6 +92,8 @@ export type Theme =
   | "gruvbox-light-hard"
   | "gruvbox-light-medium"
   | "gruvbox-light-soft"
+  | "horizon"
+  | "horizon-bright"
   | "houston"
   | "kanagawa-dragon"
   | "kanagawa-lotus"
@@ -100,6 +109,7 @@ export type Theme =
   | "min-light"
   | "monokai"
   | "night-owl"
+  | "night-owl-light"
   | "nord"
   | "one-dark-pro"
   | "one-light"
@@ -125,6 +135,8 @@ export const themes = [
   andromeeda,
   auroraX,
   ayuDark,
+  ayuLight,
+  ayuMirage,
   catppuccinFrappe,
   catppuccinLatte,
   catppuccinMacchiato,
@@ -147,6 +159,8 @@ export const themes = [
   gruvboxLightHard,
   gruvboxLightMedium,
   gruvboxLightSoft,
+  horizon,
+  horizonBright,
   houston,
   kanagawaDragon,
   kanagawaLotus,
@@ -162,6 +176,7 @@ export const themes = [
   minLight,
   monokai,
   nightOwl,
+  nightOwlLight,
   nord,
   oneDarkPro,
   oneLight,

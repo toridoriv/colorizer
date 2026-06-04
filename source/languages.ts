@@ -30,6 +30,8 @@ import beancount from "@shikijs/langs/beancount";
 import berry from "@shikijs/langs/berry";
 import bibtex from "@shikijs/langs/bibtex";
 import bicep from "@shikijs/langs/bicep";
+import bird from "@shikijs/langs/bird";
+import bird2 from "@shikijs/langs/bird2";
 import blade from "@shikijs/langs/blade";
 import bsl from "@shikijs/langs/bsl";
 import c from "@shikijs/langs/c";
@@ -102,6 +104,7 @@ import fs from "@shikijs/langs/fs";
 import fsharp from "@shikijs/langs/fsharp";
 import fsl from "@shikijs/langs/fsl";
 import ftl from "@shikijs/langs/ftl";
+import gd from "@shikijs/langs/gd";
 import gdresource from "@shikijs/langs/gdresource";
 import gdscript from "@shikijs/langs/gdscript";
 import gdshader from "@shikijs/langs/gdshader";
@@ -155,6 +158,7 @@ import jsonnet from "@shikijs/langs/jsonnet";
 import jssm from "@shikijs/langs/jssm";
 import jsx from "@shikijs/langs/jsx";
 import julia from "@shikijs/langs/julia";
+import just from "@shikijs/langs/just";
 import kdl from "@shikijs/langs/kdl";
 import kotlin from "@shikijs/langs/kotlin";
 import kql from "@shikijs/langs/kql";
@@ -198,6 +202,7 @@ import mts from "@shikijs/langs/mts";
 import nar from "@shikijs/langs/nar";
 import narrat from "@shikijs/langs/narrat";
 import nextflow from "@shikijs/langs/nextflow";
+import nextflowGroovy from "@shikijs/langs/nextflow-groovy";
 import nf from "@shikijs/langs/nf";
 import nginx from "@shikijs/langs/nginx";
 import nim from "@shikijs/langs/nim";
@@ -208,6 +213,7 @@ import objc from "@shikijs/langs/objc";
 import objectiveC from "@shikijs/langs/objective-c";
 import objectiveCpp from "@shikijs/langs/objective-cpp";
 import ocaml from "@shikijs/langs/ocaml";
+import odin from "@shikijs/langs/odin";
 import openscad from "@shikijs/langs/openscad";
 import pascal from "@shikijs/langs/pascal";
 import perl from "@shikijs/langs/perl";
@@ -248,6 +254,7 @@ import regex from "@shikijs/langs/regex";
 import regexp from "@shikijs/langs/regexp";
 import rel from "@shikijs/langs/rel";
 import riscv from "@shikijs/langs/riscv";
+import ron from "@shikijs/langs/ron";
 import rosmsg from "@shikijs/langs/rosmsg";
 import rs from "@shikijs/langs/rs";
 import rst from "@shikijs/langs/rst";
@@ -277,6 +284,8 @@ import sshConfig from "@shikijs/langs/ssh-config";
 import stata from "@shikijs/langs/stata";
 import styl from "@shikijs/langs/styl";
 import stylus from "@shikijs/langs/stylus";
+import surql from "@shikijs/langs/surql";
+import surrealql from "@shikijs/langs/surrealql";
 import svelte from "@shikijs/langs/svelte";
 import swift from "@shikijs/langs/swift";
 import systemVerilog from "@shikijs/langs/system-verilog";
@@ -291,8 +300,10 @@ import tex from "@shikijs/langs/tex";
 import tf from "@shikijs/langs/tf";
 import tfvars from "@shikijs/langs/tfvars";
 import toml from "@shikijs/langs/toml";
+import tres from "@shikijs/langs/tres";
 import ts from "@shikijs/langs/ts";
 import tsTags from "@shikijs/langs/ts-tags";
+import tscn from "@shikijs/langs/tscn";
 import tsp from "@shikijs/langs/tsp";
 import tsv from "@shikijs/langs/tsv";
 import tsx from "@shikijs/langs/tsx";
@@ -367,6 +378,8 @@ export type Language =
   | "berry"
   | "bibtex"
   | "bicep"
+  | "bird"
+  | "bird2"
   | "blade"
   | "bsl"
   | "c"
@@ -439,6 +452,7 @@ export type Language =
   | "fsharp"
   | "fsl"
   | "ftl"
+  | "gd"
   | "gdresource"
   | "gdscript"
   | "gdshader"
@@ -492,6 +506,7 @@ export type Language =
   | "jssm"
   | "jsx"
   | "julia"
+  | "just"
   | "kdl"
   | "kotlin"
   | "kql"
@@ -535,6 +550,7 @@ export type Language =
   | "nar"
   | "narrat"
   | "nextflow"
+  | "nextflow-groovy"
   | "nf"
   | "nginx"
   | "nim"
@@ -545,6 +561,7 @@ export type Language =
   | "objective-c"
   | "objective-cpp"
   | "ocaml"
+  | "odin"
   | "openscad"
   | "pascal"
   | "perl"
@@ -585,6 +602,7 @@ export type Language =
   | "regexp"
   | "rel"
   | "riscv"
+  | "ron"
   | "rosmsg"
   | "rs"
   | "rst"
@@ -614,6 +632,8 @@ export type Language =
   | "stata"
   | "styl"
   | "stylus"
+  | "surql"
+  | "surrealql"
   | "svelte"
   | "swift"
   | "system-verilog"
@@ -628,8 +648,10 @@ export type Language =
   | "tf"
   | "tfvars"
   | "toml"
+  | "tres"
   | "ts"
   | "ts-tags"
+  | "tscn"
   | "tsp"
   | "tsv"
   | "tsx"
@@ -704,6 +726,8 @@ export const languages = [
   berry,
   bibtex,
   bicep,
+  bird,
+  bird2,
   blade,
   bsl,
   c,
@@ -776,6 +800,7 @@ export const languages = [
   fsharp,
   fsl,
   ftl,
+  gd,
   gdresource,
   gdscript,
   gdshader,
@@ -829,6 +854,7 @@ export const languages = [
   jssm,
   jsx,
   julia,
+  just,
   kdl,
   kotlin,
   kql,
@@ -872,6 +898,7 @@ export const languages = [
   nar,
   narrat,
   nextflow,
+  nextflowGroovy,
   nf,
   nginx,
   nim,
@@ -882,6 +909,7 @@ export const languages = [
   objectiveC,
   objectiveCpp,
   ocaml,
+  odin,
   openscad,
   pascal,
   perl,
@@ -922,6 +950,7 @@ export const languages = [
   regexp,
   rel,
   riscv,
+  ron,
   rosmsg,
   rs,
   rst,
@@ -951,6 +980,8 @@ export const languages = [
   stata,
   styl,
   stylus,
+  surql,
+  surrealql,
   svelte,
   swift,
   systemVerilog,
@@ -965,8 +996,10 @@ export const languages = [
   tf,
   tfvars,
   toml,
+  tres,
   ts,
   tsTags,
+  tscn,
   tsp,
   tsv,
   tsx,
