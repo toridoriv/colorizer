@@ -38,11 +38,11 @@
   "eslint.format.enable": true,
   "eslint.runtime": "node",
   "eslint.validate": ["css", "html", "json", "jsonc", "javascript", "markdown", "typescript"],
-  "javascript.suggestionActions.enabled": false,
-  "typescript.disableAutomaticTypeAcquisition": true,
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.suggest.autoImports": true,
-  "typescript.tsdk": "./node_modules/typescript/lib",
+  "js/ts.suggestionActions.enabled": false,
+  "js/ts.tsserver.automaticTypeAcquisition.enabled": false,
+  "js/ts.tsdk.promptToUseWorkspaceVersion": true,
+  "js/ts.suggest.autoImports": true,
+  "js/ts.tsdk.path": "./node_modules/typescript/lib",
   "eslint.useFlatConfig": true,
   "github.copilot.chat.commitMessageGeneration.instructions": [
     {
