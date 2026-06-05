@@ -21,6 +21,7 @@
   "devDependencies": {
     "@shikijs/cli": "^4.2.0",
     "@toridoriv/eslint-config": "github:toridoriv/eslint-config",
+    "@toridoriv/fs-plus": "github:toridoriv/fs-plus",
     "@types/node": "^24.13.0",
     "@typescript-eslint/eslint-plugin": "^8.32.0",
     "eslint": "^9.39.1",
