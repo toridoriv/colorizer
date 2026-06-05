@@ -1,3 +1,5 @@
+import { debuglog } from "node:util";
+
 import { codeToANSI } from "./code-to-ansi.ts";
 import { format } from "./format.ts";
 import { type Language } from "./languages.ts";
@@ -9,13 +11,15 @@ export type ColorizeFn = (code: string, theme?: Theme) => string;
 
 export type Colorize = { [K in Language]: ColorizeFn };
 
+const log = debuglog("syntax-highlight:colorize");
+
 function createCodeColorizer(language: Language) {
   return {
     [language](code: string, theme: Theme = "dracula") {
       try {
         code = format(code, language);
       } catch (error) {
-        console.debug("Prettier failed to format code", error);
+        log("Prettier failed to format code", error);
       }
 
       return codeToANSI(code.trim(), language, theme);

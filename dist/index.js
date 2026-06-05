@@ -1,5 +1,8 @@
 // @ts-nocheck
 
+// source/index.ts
+import { debuglog } from "node:util";
+
 // source/code-to-ansi.ts
 import makeSynchronous from "./make-synchronous.js";
 var codeToANSI = makeSynchronous(codeToANSIAsync);
@@ -79,13 +82,13 @@ async function formatAsync(code, language, options = {}) {
     mjml: "mjml",
     yaml: "yaml",
   }[language];
-  const { debuglog } = await import("node:util");
-  const log = debuglog("syntax-highlight:format");
+  const { debuglog: debuglog2 } = await import("node:util");
+  const log2 = debuglog2("syntax-highlight:format");
   if (!parser) {
-    log("\u26A0\uFE0F No parser found for language: %s", language);
+    log2("\u26A0\uFE0F No parser found for language: %s", language);
     return code;
   }
-  log("\u2139\uFE0F  Formatting code with parser: %s", parser);
+  log2("\u2139\uFE0F  Formatting code with parser: %s", parser);
   const prettierPluginXML = await import("@prettier/plugin-xml");
   const prettier = await import("prettier");
   const result = await prettier.format(code, {
@@ -110,13 +113,14 @@ async function formatAsync(code, language, options = {}) {
 }
 
 // source/index.ts
+var log = debuglog("syntax-highlight:colorize");
 function createCodeColorizer(language) {
   return {
     [language](code, theme = "dracula") {
       try {
         code = format(code, language);
       } catch (error) {
-        console.debug("Prettier failed to format code", error);
+        log("Prettier failed to format code", error);
       }
       return codeToANSI(code.trim(), language, theme);
     },
