@@ -14,15 +14,13 @@
     "build:fix": "scripty",
     "build:format": "prettier -w ./dist",
     "prebuild": "rm -rf dist",
-    "build": "npm run build:generate-v2",
+    "build": "npm run build:generate",
     "postbuild": "npm-run-all build:fix build:format",
-    "generate:shiki-imports": "scripty",
-    "build:generate-v2": "scripty"
+    "generate:shiki-imports": "scripty"
   },
   "devDependencies": {
     "@shikijs/cli": "^4.2.0",
     "@toridoriv/eslint-config": "github:toridoriv/eslint-config",
-    "@types/bun": "^1.3.14",
     "@types/node": "^24.13.0",
     "@typescript-eslint/eslint-plugin": "^8.32.0",
     "eslint": "^9.39.1",

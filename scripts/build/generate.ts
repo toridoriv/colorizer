@@ -1,7 +1,8 @@
-#!/usr/bin/env -S bun
+#!/usr/bin/env -S node
 import fs from "node:fs";
 
 import prettier from "prettier";
+import * as tsup from "tsup";
 import ts from "typescript";
 
 import packageJson from "../../package.json" with { type: "json" };
@@ -13,7 +14,7 @@ const entrypoints: BuildOptions[] = [{ entryPoint: "source/make-synchronous.ts",
 
 entrypoints.push({
   entryPoint: "source/index.ts",
-  external: [...sharedExternal, ...entrypoints.map((e) => `./${e.entryPoint}`)],
+  external: [...sharedExternal, ...entrypoints.map((e) => e.entryPoint.replace("source/", "./"))],
 });
 
 for (const entryPoint of entrypoints) {
@@ -24,22 +25,19 @@ type BuildOptions = { entryPoint: string; external?: string[] };
 
 async function build({ entryPoint, external = [] }: BuildOptions) {
   console.log(`Building ${entryPoint}...`);
-  const output = await Bun.build({
-    entrypoints: [entryPoint],
-    outdir: "dist",
-    banner: "// @ts-ignore",
-    target: "node",
+  await tsup.build({
+    entry: [entryPoint],
+    outDir: "dist",
+    banner: { js: "// @ts-ignore" },
+    target: "node24",
     format: "esm",
-    emitDCEAnnotations: true,
     minify: false,
-    env: "disable",
     external,
+    bundle: true,
+    platform: "node",
+    removeNodeProtocol: false,
+    sourcemap: false,
   });
-
-  if (!output.success) {
-    output.logs.forEach((log) => console.info(log));
-    process.exit(1);
-  }
 
   const outFile = `dist/${entryPoint
     .replace("source/", "")
