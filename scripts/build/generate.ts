@@ -6,7 +6,6 @@ import * as tsup from "tsup";
 import ts from "typescript";
 
 import packageJson from "../../package.json" with { type: "json" };
-import prettierConfig from "../../prettier.config.js";
 
 const sharedExternal = Object.keys(packageJson.dependencies);
 
@@ -28,7 +27,7 @@ async function build({ entryPoint, external = [] }: BuildOptions) {
   await tsup.build({
     entry: [entryPoint],
     outDir: "dist",
-    banner: { js: "// @ts-ignore" },
+    banner: { js: "// @ts-nocheck" },
     target: "node24",
     format: "esm",
     minify: false,
@@ -59,7 +58,7 @@ async function build({ entryPoint, external = [] }: BuildOptions) {
   const host = ts.createCompilerHost(compilerOptions);
 
   host.writeFile = async (filename, text) => {
-    const { plugins, ...rest } = prettierConfig;
+    const prettierConfig = await prettier.resolveConfig(outFile, { useCache: true, editorconfig: true });
     const contents = text
       .split("declare module")
       .map((section) => section.substring(section.indexOf("{") + 1, section.lastIndexOf("}")))
@@ -68,7 +67,8 @@ async function build({ entryPoint, external = [] }: BuildOptions) {
       .filter((line) => !line.includes("import"))
       .filter((line) => !(line.includes("export") && line.includes("from")));
 
-    fs.writeFileSync(outFile, await prettier.format(contents.join("\n"), { ...rest, parser: "typescript" }), "utf-8");
+    contents.unshift("// @ts-nocheck");
+    fs.writeFileSync(outFile, await prettier.format(contents.join("\n"), prettierConfig!), "utf-8");
   };
 
   const program = ts.createProgram([entryPoint], compilerOptions, host);

@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 
 // source/make-synchronous.ts
 import { parentPort, receiveMessageOnPort, Worker, workerData } from "node:worker_threads";

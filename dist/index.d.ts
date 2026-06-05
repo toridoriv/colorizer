@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 export type Language =
   | "1c"
   | "1c-query"
@@ -356,8 +358,8 @@ type ReplaceReturnType<T extends (...arguments_: any) => unknown, NewReturnType>
  * Returns a wrapped version of the given async function or a string representation to a async function which executes
  * synchronously. This means no other code will execute (not even async code) until the given async function is done.
  *
- * Uses [`MessagePort#postMessage()`](https://nodejs.org/api/worker_threads.html#portpostmessagevalue-transferlist) or
- * the V8 serialization API to transfer arguments, return values, errors between the worker or subprocess and the
+ * Uses [`MessagePort#postMessage()`](https://nodejs.org/api/worker_threads.html#portpostmessagevalue-transferlist)
+ * or the V8 serialization API to transfer arguments, return values, errors between the worker or subprocess and the
  * current process. Most values are supported — except functions and symbols.
  *
  * @example

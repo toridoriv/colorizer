@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 
 // source/code-to-ansi.ts
 import makeSynchronous from "./make-synchronous.js";
