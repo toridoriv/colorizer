@@ -5,7 +5,7 @@ export { type Language } from "./languages.ts";
 import { type Theme } from "./themes.ts";
 export { type Theme } from "./themes.ts";
 
-type ColorizeFn = (code: string, theme?: Theme) => string;
+export type ColorizeFn = (code: string, theme?: Theme) => string;
 
 export type Colorize = { [K in Language]: ColorizeFn };
 

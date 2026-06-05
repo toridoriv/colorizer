@@ -465,7 +465,7 @@ export type FormatOptions = { [K in keyof Options as K extends "parser" | "plugi
 export const format: (code: string, language: string, options?: FormatOptions) => string;
 export function formatAsync(code: string, language: string, options?: FormatOptions): Promise<string>;
 
-type ColorizeFn = (code: string, theme?: Theme) => string;
+export type ColorizeFn = (code: string, theme?: Theme) => string;
 export type Colorize = { [K in Language]: ColorizeFn };
 export const colorize: Colorize;
 export function isJson(value: string): boolean;
