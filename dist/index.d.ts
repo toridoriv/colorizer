@@ -467,8 +467,12 @@ export type FormatOptions = { [K in keyof Options as K extends "parser" | "plugi
 export const format: (code: string, language: string, options?: FormatOptions) => string;
 export function formatAsync(code: string, language: string, options?: FormatOptions): Promise<string>;
 
-export type ColorizeFn = (code: string, theme?: Theme) => string;
-export type Colorize = { [K in Language]: ColorizeFn };
+export type ColorizeFn = (code: string, theme?: ColorTheme) => string;
+export type Colorize = { [K in Lang]: ColorizeFn };
+export namespace colorize {
+  type Language = Lang;
+  type Theme = ColorTheme;
+}
 export const colorize: Colorize;
 export function isJson(value: string): boolean;
 export function getLanguage(value: string): "html" | "json" | "markdown" | "xml";

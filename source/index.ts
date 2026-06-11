@@ -2,20 +2,20 @@ import { debuglog } from "node:util";
 
 import { codeToANSI } from "./code-to-ansi.ts";
 import { format } from "./format.ts";
-import { type Language } from "./languages.ts";
+import { type Language as Lang } from "./languages.ts";
 export { type Language } from "./languages.ts";
-import { type Theme } from "./themes.ts";
+import { type Theme as ColorTheme } from "./themes.ts";
 export { type Theme } from "./themes.ts";
 
-export type ColorizeFn = (code: string, theme?: Theme) => string;
+export type ColorizeFn = (code: string, theme?: ColorTheme) => string;
 
-export type Colorize = { [K in Language]: ColorizeFn };
+export type Colorize = { [K in Lang]: ColorizeFn };
 
 const log = debuglog("syntax-highlight:colorize");
 
-function createCodeColorizer(language: Language) {
+function createCodeColorizer(language: Lang) {
   return {
-    [language](code: string, theme: Theme = "dracula") {
+    [language](code: string, theme: ColorTheme = "dracula") {
       try {
         code = format(code, language);
       } catch (error) {
@@ -27,11 +27,18 @@ function createCodeColorizer(language: Language) {
   }[language];
 }
 
+export namespace colorize {
+  export type Language = Lang;
+
+  export type Theme = ColorTheme;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 export const colorize: Colorize = (() => {
   const colorizer = {} as Colorize;
   const handler: ProxyHandler<Colorize> = {
     get(target, prop, receiver) {
-      const language = prop as Language;
+      const language = prop as Lang;
       let codeColorizer = target[language];
 
       if (!codeColorizer) {
