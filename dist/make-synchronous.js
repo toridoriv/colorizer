@@ -25,9 +25,10 @@ function makeSynchronous(function_) {
       mainThreadPort.unref();
       workerPort.unref();
       const code = `
-				import setupWorker from ${JSON.stringify(import.meta.url)};
-
-				setupWorker(${function_});
+        (async() => {
+          const { default: setupWorker } = await import(${JSON.stringify(import.meta.url)});
+          setupWorker(${function_});
+        })();
 			`;
       const worker = new Worker(code, {
         eval: true,
