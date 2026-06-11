@@ -4,20 +4,20 @@ import type { Language } from "./languages.ts";
 import makeSynchronous from "./make-synchronous.ts";
 import type { Theme } from "./themes.ts";
 
-enum FontStyle {
-  NotSet = -1,
-  None = 0,
-  Italic = 1,
-  Bold = 2,
-  Underline = 4,
-  Strikethrough = 8,
-}
-
 export const codeToANSI = makeSynchronous(codeToANSIAsync);
 
 export async function codeToANSIAsync(code: string, lang: Language, theme: Theme): Promise<string> {
   const { default: c } = await import("chalk");
   const { codeToTokensBase, getSingletonHighlighter } = await import("shiki");
+
+  enum FontStyle {
+    NotSet = -1,
+    None = 0,
+    Italic = 1,
+    Bold = 2,
+    Underline = 4,
+    Strikethrough = 8,
+  }
 
   function normalizeHex(hex: string): string {
     hex = hex.replace(/#/, "");

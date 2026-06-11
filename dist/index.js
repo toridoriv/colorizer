@@ -9,6 +9,15 @@ var codeToANSI = makeSynchronous(codeToANSIAsync);
 async function codeToANSIAsync(code, lang, theme) {
   const { default: c } = await import("chalk");
   const { codeToTokensBase, getSingletonHighlighter } = await import("shiki");
+  let FontStyle;
+  ((FontStyle2) => {
+    FontStyle2[(FontStyle2["NotSet"] = -1)] = "NotSet";
+    FontStyle2[(FontStyle2["None"] = 0)] = "None";
+    FontStyle2[(FontStyle2["Italic"] = 1)] = "Italic";
+    FontStyle2[(FontStyle2["Bold"] = 2)] = "Bold";
+    FontStyle2[(FontStyle2["Underline"] = 4)] = "Underline";
+    FontStyle2[(FontStyle2["Strikethrough"] = 8)] = "Strikethrough";
+  })(FontStyle || (FontStyle = {}));
   function normalizeHex(hex) {
     hex = hex.replace(/#/, "");
     if (hex.length === 3) hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
